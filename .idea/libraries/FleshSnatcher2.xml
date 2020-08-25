@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="FleshSnatcher">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/jME_2.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/flesh_snatcher.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
