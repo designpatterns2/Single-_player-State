@@ -279,7 +279,7 @@ public final class CollisionHeightMap implements CollisionNode {
 		for (xi=xi1; xi<=xi2; xi++)
 			for (zi=zi1; zi<=zi2; zi++)
 				if (!map[xi][zi].dummy)
-					if (testTrace.trace(map[xi][zi].bsp, false)) {
+					if (Tracer.trace(map[xi][zi].bsp, false, testTrace)) {
 						xf = (testTrace.start.x + (testTrace.segment.x * testTrace.fractionReal));
 						zf = (testTrace.start.z + (testTrace.segment.z * testTrace.fractionReal));
 						if ( (xf>=xMin && xf<xMax && zf<=zMin && zf>zMax) )
@@ -347,7 +347,7 @@ public final class CollisionHeightMap implements CollisionNode {
 			for (zi=zMin; zi<=zMax; zi++) {
 				testTrace.clearImpact();
 				if (!map[xi][zi].dummy)
-					if (testTrace.trace(map[xi][zi].bsp, false)) {
+					if (Tracer.trace(map[xi][zi].bsp, false, testTrace)) {
 						if ((int)Math.floor( ((testTrace.start.x + (testTrace.segment.x * testTrace.fractionImpact)) - xp) * ga_inv )==xi && 
 							-(int)Math.ceil( ((testTrace.start.z + (testTrace.segment.z * testTrace.fractionImpact)) - zp) * ga_inv )==zi ) {
 							return true;

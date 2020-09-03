@@ -22,6 +22,7 @@ package main;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import states.StateContext;
 import world.World;
 import entity.Message;
 import input.LoadHelper;
@@ -99,17 +100,17 @@ public class Main extends AbstractGame {
 
 
 	// Game sequences
-	public static int INTRO = 0;
-	public static int DIFFICULTY = 1;
-	public static int LOADING = 2;
-	public static int INGAME = 3;
-	public static int KINEMATIC = 4;
-	public static int PAUSE = 5;
-	public static int GAME_OVER = 6;
-	public static int GAME_DONE = 7;
-	public static int LOAD = 8;
-	public static int SAVE = 9;
-	public static int FINISHED = 10;
+	public static final int INTRO = 0;
+	public static final int DIFFICULTY = 1;
+	public static final int LOADING = 2;
+	public static final int INGAME = 3;
+	public static final int KINEMATIC = 4;
+	public static final int PAUSE = 5;
+	public static final int GAME_OVER = 6;
+	public static final int GAME_DONE = 7;
+	public static final int LOAD = 8;
+	public static final int SAVE = 9;
+	public static final int FINISHED = 10;
 	
 	private int sequence;
 	
@@ -134,7 +135,6 @@ public class Main extends AbstractGame {
      * string. Also checks keys for toggling pause, bounds, normals, lights,
      * wire etc.
      *
-     * @param interpolation unused in this implementation
      * @see AbstractGame#update(float interpolation)
      */
     public final void start() {
@@ -147,23 +147,12 @@ public class Main extends AbstractGame {
     	initSystem();
     	initGame();
     	Sounds.init();
-    	
-    	sequence = INTRO;
+
+
+    	new StateContext(rootNode, lightState, cam, input, this);
 
     	//State pattern
-        while (!finished) {
-    		if (sequence == INTRO) sequence = DisplayIntro.display(rootNode, lightState, cam, input);
-    		else if (sequence == DIFFICULTY) sequence = DisplayDifficulty.display(rootNode, lightState, cam, input);
-    		else if (sequence == LOADING) sequence = DisplayLoading.display(rootNode, lightState, cam, input);
-    		else if (sequence == INGAME) sequence = DisplayInGame.display(rootNode, lightState, cam, input);
-    		else if (sequence == KINEMATIC) sequence = DisplayKinematic.display(rootNode, lightState, cam, input);
-    		else if (sequence == PAUSE) sequence = DisplayPause.display(rootNode, lightState, cam, input);
-    		else if (sequence == GAME_OVER) sequence = DisplayGameOver.display(rootNode, lightState, cam, input);
-    		else if (sequence == GAME_DONE) sequence = DisplayGameDone.display(rootNode, lightState, cam, input);
-    		else if (sequence == LOAD) sequence = DisplayLoad.display(rootNode, lightState, cam, input);
-    		else if (sequence == SAVE) sequence = DisplaySave.display(rootNode, lightState, cam, input);
-    		else if (sequence == FINISHED) finish();
-    	}
+        while (!finished) {}
         
         Sounds.cleanup();
         cleanup();

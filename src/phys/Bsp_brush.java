@@ -67,7 +67,7 @@ public final class Bsp_brush {
 	public void trace(Trace trace) {
 		
 		if (!collision_tested) {
-			trace.trace(bsp, true);
+			Tracer.trace(bsp, true, trace);
 			collision_tested = true;
 			//System.out.println("BRUSH TESTED !!");
 		}

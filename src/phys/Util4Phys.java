@@ -364,9 +364,9 @@ public final class Util4Phys {
 		s_trace1.reset(s_sphere, triangle.point1, triangle.point1);
 		s_trace2.reset(s_sphere, triangle.point2, triangle.point2);
 		s_trace3.reset(s_sphere, triangle.point3, triangle.point3);
-		s_trace1.trace(brush.bsp, false);
-		s_trace2.trace(brush.bsp, false);
-		s_trace3.trace(brush.bsp, false);
+		Tracer.trace(brush.bsp, false, s_trace1);
+		Tracer.trace(brush.bsp, false, s_trace2);
+		Tracer.trace(brush.bsp, false, s_trace3);
 		if (s_trace1.dummy && s_trace2.dummy && s_trace3.dummy) {
 			JGL_3DBsp bsp = brush.bsp;
 			while (bsp.type==JGL_3DBsp.NODE) {
@@ -393,9 +393,9 @@ public final class Util4Phys {
 		s_trace1.reset(s_sphere, triangle.point1, triangle.point1);
 		s_trace2.reset(s_sphere, triangle.point2, triangle.point2);
 		s_trace3.reset(s_sphere, triangle.point3, triangle.point3);
-		s_trace1.trace(brush.bsp, false);
-		s_trace2.trace(brush.bsp, false);
-		s_trace3.trace(brush.bsp, false);
+		Tracer.trace(brush.bsp, false, s_trace1);
+		Tracer.trace(brush.bsp, false, s_trace2);
+		Tracer.trace(brush.bsp, false, s_trace3);
 		if (s_trace1.dummy && s_trace2.dummy && s_trace3.dummy) {
 			JGL_3DBsp bsp = brush.bsp;
 			while (bsp.type==JGL_3DBsp.NODE) {
@@ -440,9 +440,9 @@ public final class Util4Phys {
 		s_trace1.reset(s_sphere, triangle.point1, triangle.point1);
 		s_trace2.reset(s_sphere, triangle.point2, triangle.point2);
 		s_trace3.reset(s_sphere, triangle.point3, triangle.point3);
-		s_trace1.trace(brush.bsp, false);
-		s_trace2.trace(brush.bsp, false);
-		s_trace3.trace(brush.bsp, false);
+		Tracer.trace(brush.bsp, false, s_trace1);
+		Tracer.trace(brush.bsp, false, s_trace2);
+		Tracer.trace(brush.bsp, false, s_trace3);
 		if (s_trace1.dummy && s_trace2.dummy && s_trace3.dummy) {
 			JGL_3DBsp bsp = brush.bsp;
 			while (bsp.type==JGL_3DBsp.NODE) {
